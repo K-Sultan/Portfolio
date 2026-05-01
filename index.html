@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Backend Software Engineer specializing in Django, Laravel, and full-stack systems.">
+    <title>Kareem Sultan | Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">&lt;Kareem <span>Sultan</span>/&gt;</a>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact 📞</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-prism" aria-hidden="true"></div>
+            <div class="hero-content reveal">
+                <p class="greeting">Software Developer / Systems Builder</p>
+                <h1 class="glitch" data-text="Kareem Sultan.">Kareem Sultan.</h1>
+                <h2 class="subtitle">I build systems that feel clear & fast <br> built to last.</h2>
+                <p class="hero-description">
+                    <span class="type-text"></span><span class="cursor">&nbsp;</span><br><br>
+                    I build full-stack applications such as hotel management systems,
+                    clinic management systems, bookstore platforms, and scalable APIs with business logic that is easy to explain and easier to maintain.
+                </p>
+                <div class="hero-stats" aria-label="Portfolio highlights">
+                    <div>
+                        <strong>4+</strong>
+                        <span>system domains</span>
+                    </div>
+                    <div>
+                        <strong>API</strong>
+                        <span>first mindset</span>
+                    </div>
+                    <div>
+                        <strong>SQL</strong>
+                        <span>data modeling</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary"><i class="fas fa-code"></i> View Projects</a>
+                    <a href="#contact" class="btn secondary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                </div>
+            </div>
+            <div class="scroll-down">
+                <a href="#about"><i class="fas fa-chevron-down"></i></a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title reveal"><span>01.</span> About Me</h2>
+            <p class="section-kicker reveal">A developer who thinks in workflows, data, and the people who use the product after launch.</p>
+            <div class="about-container reveal">
+                <div class="about-text">
+                    <p>
+                        I am a Software Developer with experience in backend and full-stack
+                        development. I specialize in designing structured, robust real-world systems using technologies like <strong>Nodejs, Laravel,and Vue.js</strong>.
+                    </p>
+                    <p>
+                        Whether it's planning databases with <strong>SQL/MySQL</strong>, wrapping logic in secure <strong>REST APIs</strong>, or bringing business workflows to life, I enjoy solving complex problems with clean code.
+                    </p>
+                </div>
+                <!-- Optional: You can add an image here later if you provide one in assets/images/ -->
+                <div class="about-image">
+                <img src="assets/images/kareem.png" alt="Kareem Sultan">
+                </div>
+
+                <div class="about-card glass">
+                    <i class="fas fa-terminal"></i>
+                    <h3>"Clean code, scalable systems."</h3>
+                    <p>Backend discipline with enough frontend taste to make the whole product feel intentional.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2 class="section-title reveal"><span>02.</span> Technical Arsenal</h2>
+            <p class="section-kicker reveal">A focused stack for turning real business rules into reliable, testable products.</p>
+            <div class="skills-wrapper reveal">
+                <div class="skill-category glass">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">RBAC</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category glass">
+                    <h3><i class="fas fa-database"></i> Database</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass">
+                    <h3><i class="fas fa-desktop"></i> Frontend</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">HTML5 / CSS3</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass">
+                    <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Postman</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title reveal"><span>03.</span> Featured Projects</h2>
+            <p class="section-kicker reveal">Each project is selected to show practical engineering: permissions, scheduling, payments, inventory, and structured data.</p>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card glass reveal">
+                    <div class="project-header">
+                        <i class="far fa-folder-open folder-icon"></i>
+                        <div class="project-links">
+                            <a href="#" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="https://www.youtube.com/watch?v=LjwKGJLvgLE" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Hotel Management System</h3>
+                    <div class="project-description">
+                        <p>
+                            Designed and developed a full-stack hotel management system to handle
+                            real-world booking workflows including room availability, reservations,
+                            and payments.
+                        </p>
+                        <ul>
+                            <li>Role-based admin & staff access</li>
+                            <li>Advanced booking conflict prevention logic</li>
+                            <li>Online payment flow integration</li>
+                        </ul>
+                    </div>
+                    <ul class="tech-list">
+                        <li>Laravel</li>
+                        <li>Vue.js</li>
+                        <li>MySQL</li>
+                        <li>Tailwind</li>
+                    </ul>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass reveal" style="transition-delay: 100ms;">
+                    <div class="project-header">
+                        <i class="far fa-folder-open folder-icon"></i>
+                        <div class="project-links">
+                            <a href="#" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Pharma Clinic Management</h3>
+                    <div class="project-description">
+                        <p>
+                            Built a clinic system to manage patients, doctors, appointments,
+                            schedules, and consultations with a structured backend.
+                        </p>
+                        <ul>
+                            <li>REST APIs with Django REST Framework</li>
+                            <li>Appointment & Scheduling engine</li>
+                            <li>Role-based access (Patient/Doctor/Receptionist)</li>
+                        </ul>
+                    </div>
+                    <ul class="tech-list">
+                        <li>Django</li>
+                        <li>DRF</li>
+                        <li>SQL</li>
+                        <li>Auth</li>
+                    </ul>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass reveal" style="transition-delay: 200ms;">
+                    <div class="project-header">
+                        <i class="far fa-folder-open folder-icon"></i>
+                        <div class="project-links">
+                            <a href="#" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Bookstore Platform</h3>
+                    <div class="project-description">
+                        <p>
+                            Developed a bookstore platform to manage books, authors, categories,
+                            orders, and inventory tracking.
+                        </p>
+                        <ul>
+                            <li>Complex CRUD and Many-to-Many relations</li>
+                            <li>Order & inventory management logic</li>
+                            <li>Server-rendered secure dashboard</li>
+                        </ul>
+                    </div>
+                    <ul class="tech-list">
+                        <li>Django</li>
+                        <li>MySQL</li>
+                        <li>REST API</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="section contact reveal">
+            <h2 class="section-title"><span>04.</span> What's Next?</h2>
+            <h2 class="contact-heading">Get In Touch</h2>
+            <p class="contact-text">
+                I'm currently looking for new opportunities. Whether you have a question, a project idea, or just want to say hi, my inbox is always open. Let's build something awesome together!
+            </p>
+            <div class="contact-points">
+                <span><i class="fas fa-bolt"></i> Fast learner</span>
+                <span><i class="fas fa-shield-alt"></i> Secure APIs</span>
+                <span><i class="fas fa-layer-group"></i> Full-stack delivery</span>
+            </div>
+            <button onclick="copyEmail()" class="btn secondary">Copy Email</button>
+            <a href="mailto:kareemhanysultan2004@gmail.com?subject=Hello Kareem&body=Hi Kareem, I saw your portfolio..."
+            class="btn primary contact-btn">
+                Say Hello <i class="fas fa-envelope"></i>
+            </a>            
+            <div class="social-links mt-4">
+                <a href="https://github.com/K-Sultan" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kareem-sultan-1b7ba3372/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with <i class="fas fa-heart" style="color:#ffd166;"></i> by Kareem Sultan &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
