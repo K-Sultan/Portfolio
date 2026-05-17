@@ -1,84 +1,143 @@
-// Typed Text Effect
-const strings = ["Backend-focused developer", "RESTful API creator", "Full-Stack systems builder"];
+// ── Typed Text Effect ──────────────────────────────────────────
+const strings = ["Backend-focused developer", "RESTful API architect", "Full-Stack systems builder"];
 const typeElement = document.querySelector('.type-text');
-let stringIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+let stringIndex = 0, charIndex = 0, isDeleting = false;
 
 function typeEffect() {
-    const currentString = strings[stringIndex];
-    if (isDeleting) {
-        typeElement.textContent = currentString.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typeElement.textContent = currentString.substring(0, charIndex + 1);
-        charIndex++;
-    }
+    const current = strings[stringIndex];
+    typeElement.textContent = isDeleting
+        ? current.substring(0, charIndex - 1)
+        : current.substring(0, charIndex + 1);
+
+    isDeleting ? charIndex-- : charIndex++;
 
     let speed = isDeleting ? 50 : 100;
 
-    if (!isDeleting && charIndex === currentString.length) {
-        speed = 2000; // pause at end of word
+    if (!isDeleting && charIndex === current.length) {
+        speed = 2000;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         stringIndex = (stringIndex + 1) % strings.length;
-        speed = 500; // pause before next word
+        speed = 500;
     }
-
     setTimeout(typeEffect, speed);
 }
 document.addEventListener('DOMContentLoaded', typeEffect);
 
-// Scroll Animations (Reveal Elements)
+// ── Scroll Progress Bar ────────────────────────────────────────
+const scrollProgress = document.getElementById('scrollProgress');
+
+function updateScrollProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = pct + '%';
+}
+
+// ── Reveal on Scroll ───────────────────────────────────────────
 const revealElements = document.querySelectorAll('.reveal');
 
 function revealOnScroll() {
     const windowHeight = window.innerHeight;
-    const revealPoint = 100;
-    
     revealElements.forEach(el => {
-        const revealTop = el.getBoundingClientRect().top;
-        if(revealTop < windowHeight - revealPoint) {
+        if (el.getBoundingClientRect().top < windowHeight - 100) {
             el.classList.add('active');
         }
     });
 }
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Trigger once on load
 
-// Mobile Menu Toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
+// ── Active Nav Link on Scroll ──────────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveNav() {
+    let current = '';
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 140) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ── Header scroll style ────────────────────────────────────────
+const header = document.getElementById('header');
+
+function updateHeader() {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+}
+
+// ── Back to Top button ─────────────────────────────────────────
+const backToTop = document.getElementById('backToTop');
+
+function updateBackToTop() {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+}
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ── Consolidated scroll handler ────────────────────────────────
+window.addEventListener('scroll', () => {
+    updateScrollProgress();
+    revealOnScroll();
+    updateActiveNav();
+    updateHeader();
+    updateBackToTop();
+}, { passive: true });
+
+revealOnScroll();
+updateActiveNav();
+
+// ── Mobile Menu ────────────────────────────────────────────────
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinksEl = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+
+function closeMenu() {
+    navLinksEl.classList.remove('active');
+    navOverlay.classList.remove('active');
+    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+    document.body.style.overflow = '';
+}
 
 mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    const icon = mobileMenuBtn.querySelector('i');
-    if(navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
-    });
+    const isOpen = navLinksEl.classList.toggle('active');
+    navOverlay.classList.toggle('active', isOpen);
+    mobileMenuBtn.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-// Particles Background
+navOverlay.addEventListener('click', closeMenu);
+
+navLinksEl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+mobileMenuBtn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') mobileMenuBtn.click();
+});
+
+// ── Particles ─────────────────────────────────────────────────
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-let particlesArray = [];
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
 
 class Particle {
-    constructor() {
+    constructor() { this.reset(); }
+    reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2;
@@ -98,38 +157,62 @@ class Particle {
         ctx.fill();
     }
 }
+
+let particlesArray = [];
+
 function initParticles() {
     particlesArray = [];
-    const numberOfParticles = (canvas.width * canvas.height) / 10000;
-    for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
-    }
+    const count = Math.floor((canvas.width * canvas.height) / 10000);
+    for (let i = 0; i < count; i++) particlesArray.push(new Particle());
 }
+
 function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
-    }
+    particlesArray.forEach(p => { p.update(); p.draw(); });
     requestAnimationFrame(animateParticles);
 }
+
 initParticles();
 animateParticles();
 
-// Resize canvas on window resize
+let resizeTimer;
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-});
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resizeCanvas(); initParticles(); }, 150);
+}, { passive: true });
 
-document.body.style.opacity = 0;
-window.onload = () => {
-    document.body.style.transition = "0.5s";
-    document.body.style.opacity = 1;
-};
-
+// ── Copy Email with Toast ──────────────────────────────────────
 function copyEmail() {
-    navigator.clipboard.writeText("your@email.com");
-    alert("Email copied!");
+    const email = 'kareemhanysultan2004@gmail.com';
+
+    // Create toast if not present
+    let toast = document.querySelector('.toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = '✓ Email copied to clipboard!';
+        document.body.appendChild(toast);
+    }
+
+    navigator.clipboard.writeText(email).then(() => {
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }).catch(() => {
+        // Fallback for older browsers
+        const input = document.createElement('input');
+        input.value = email;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    });
 }
+
+// ── Page fade in ───────────────────────────────────────────────
+document.body.style.opacity = 0;
+window.addEventListener('load', () => {
+    document.body.style.transition = '0.5s';
+    document.body.style.opacity = 1;
+});

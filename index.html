@@ -1,82 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Backend Software Engineer specializing in Django, Laravel, and full-stack systems.">
-    <title>Kareem Sultan | Software Developer</title>
+    <meta name="description" content="Kareem Sultan — Backend Software Engineer specializing in Node.js, Laravel, Django, and full-stack systems.">
+    <title>Kareem Sultan | Software Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <canvas id="particle-canvas"></canvas>
 
-    <header class="header">
+<body>
+    <!-- Background effects -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header / navigation -->
+    <header class="header" id="header">
         <nav class="navbar">
             <a href="#" class="logo">&lt;Kareem <span>Sultan</span>/&gt;</a>
-            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
-            <ul class="nav-links">
+
+            <div class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" role="button" tabindex="0">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact 📞</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <div class="nav-overlay" id="navOverlay"></div>
+
     <main>
+        <!-- Hero section -->
         <section class="hero" id="home">
             <div class="hero-prism" aria-hidden="true"></div>
+
             <div class="hero-content reveal">
                 <p class="greeting">Software Developer / Systems Builder</p>
                 <h1 class="glitch" data-text="Kareem Sultan.">Kareem Sultan.</h1>
-                <h2 class="subtitle">I build systems that feel clear & fast <br> built to last.</h2>
+                <h2 class="subtitle">I build systems that feel clear &amp; fast &mdash;<br>built to last.</h2>
+
                 <p class="hero-description">
                     <span class="type-text"></span><span class="cursor">&nbsp;</span><br><br>
-                    I build full-stack applications such as hotel management systems,
-                    clinic management systems, bookstore platforms, and scalable APIs with business logic that is easy to explain and easier to maintain.
+                    I build full-stack applications &mdash; hotel management systems, clinic platforms, bookstore apps, and scalable APIs with business logic that's easy to explain and easier to maintain.
                 </p>
+
                 <div class="hero-stats" aria-label="Portfolio highlights">
-                    <div>
-                        <strong>4+</strong>
-                        <span>system domains</span>
-                    </div>
-                    <div>
-                        <strong>API</strong>
-                        <span>first mindset</span>
-                    </div>
-                    <div>
-                        <strong>SQL</strong>
-                        <span>data modeling</span>
-                    </div>
+                    <div><strong>4+</strong><span>System Domains</span></div>
+                    <div><strong>API</strong><span>First Mindset</span></div>
+                    <div><strong>SQL</strong><span>Data Modeling</span></div>
                 </div>
+
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary"><i class="fas fa-code"></i> View Projects</a>
                     <a href="#contact" class="btn secondary"><i class="fas fa-paper-plane"></i> Contact Me</a>
                 </div>
             </div>
             <div class="scroll-down">
-                <a href="#about"><i class="fas fa-chevron-down"></i></a>
+                <a href="#about" aria-label="Scroll to About section"><i class="fas fa-chevron-down"></i></a>
             </div>
         </section>
 
+        <!-- About section -->
         <section id="about" class="section">
             <h2 class="section-title reveal"><span>01.</span> About Me</h2>
             <p class="section-kicker reveal">A developer who thinks in workflows, data, and the people who use the product after launch.</p>
+
             <div class="about-container reveal">
                 <div class="about-text">
-                    <p>
-                        I am a Software Developer with experience in backend and full-stack
-                        development. I specialize in designing structured, robust real-world systems using technologies like <strong>Nodejs, Laravel,and Vue.js</strong>.
-                    </p>
-                    <p>
-                        Whether it's planning databases with <strong>SQL/MySQL</strong>, wrapping logic in secure <strong>REST APIs</strong>, or bringing business workflows to life, I enjoy solving complex problems with clean code.
-                    </p>
+                    <p>I'm a Software Developer with experience in backend and full-stack development. I specialize in designing structured, robust real-world systems using technologies like <strong>Node.js, Laravel, and Vue.js</strong>.</p>
+                    <p>Whether it's planning databases with <strong>SQL/MySQL</strong>, wrapping logic in secure <strong>REST APIs</strong>, or bringing business workflows to life &mdash; I enjoy solving complex problems with clean code.</p>
                 </div>
-                <!-- Optional: You can add an image here later if you provide one in assets/images/ -->
+
                 <div class="about-image">
-                <img src="assets/images/kareem.png" alt="Kareem Sultan">
+                    <img src="assets/images/kareem.png" alt="Kareem Sultan — Software Developer" loading="lazy">
                 </div>
 
                 <div class="about-card glass">
@@ -87,30 +92,37 @@
             </div>
         </section>
 
+        <!-- Skills section -->
         <section id="skills" class="section">
             <h2 class="section-title reveal"><span>02.</span> Technical Arsenal</h2>
             <p class="section-kicker reveal">A focused stack for turning real business rules into reliable, testable products.</p>
+
             <div class="skills-wrapper reveal">
                 <div class="skill-category glass">
                     <h3><i class="fas fa-server"></i> Backend</h3>
+
                     <div class="skills-grid">
                         <span class="skill-tag">Node.js</span>
                         <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Django</span>
                         <span class="skill-tag">Express</span>
                         <span class="skill-tag">RBAC</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category glass">
                     <h3><i class="fas fa-database"></i> Database</h3>
+
                     <div class="skills-grid">
-                        <span class="skill-tag">SQL</span>
                         <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Modeling</span>
                     </div>
                 </div>
 
                 <div class="skill-category glass">
                     <h3><i class="fas fa-desktop"></i> Frontend</h3>
+
                     <div class="skills-grid">
                         <span class="skill-tag">Vue.js</span>
                         <span class="skill-tag">Tailwind CSS</span>
@@ -119,43 +131,46 @@
                 </div>
 
                 <div class="skill-category glass">
-                    <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
+
                     <div class="skills-grid">
                         <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Git &amp; GitHub</span>
                         <span class="skill-tag">Postman</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Projects section -->
         <section id="projects" class="section">
             <h2 class="section-title reveal"><span>03.</span> Featured Projects</h2>
             <p class="section-kicker reveal">Each project is selected to show practical engineering: permissions, scheduling, payments, inventory, and structured data.</p>
+
             <div class="projects-grid">
-                
-                <!-- Project 1 -->
+                <!-- Project: Hotel Management System -->
                 <div class="project-card glass reveal">
                     <div class="project-header">
                         <i class="far fa-folder-open folder-icon"></i>
+
                         <div class="project-links">
-                            <a href="#" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                            <a href="https://www.youtube.com/watch?v=LjwKGJLvgLE" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/ahmedfaheem/Sonesta" target="_blank" rel="noopener noreferrer" aria-label="View code on GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.youtube.com/watch?v=LjwKGJLvgLE" target="_blank" rel="noopener noreferrer" aria-label="Watch demo video"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
+
                     <h3>Hotel Management System</h3>
+
                     <div class="project-description">
-                        <p>
-                            Designed and developed a full-stack hotel management system to handle
-                            real-world booking workflows including room availability, reservations,
-                            and payments.
-                        </p>
+                        <p>Full-stack hotel system handling room availability, reservations, and payments end-to-end.</p>
+
                         <ul>
-                            <li>Role-based admin & staff access</li>
-                            <li>Advanced booking conflict prevention logic</li>
+                            <li>Role-based admin &amp; staff access</li>
+                            <li>Booking conflict prevention logic</li>
                             <li>Online payment flow integration</li>
                         </ul>
                     </div>
+
                     <ul class="tech-list">
                         <li>Laravel</li>
                         <li>Vue.js</li>
@@ -164,27 +179,29 @@
                     </ul>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card glass reveal" style="transition-delay: 100ms;">
+                <!-- Project: Clinic Management System -->
+                <div class="project-card glass reveal" style="transition-delay:100ms;">
                     <div class="project-header">
                         <i class="far fa-folder-open folder-icon"></i>
+
                         <div class="project-links">
-                            <a href="#" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/K-Sultan/Pharma" target="_blank" rel="noopener noreferrer" aria-label="View code on GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.youtube.com/watch?v=3LxhjUKvjEI" target="_blank" rel="noopener noreferrer" aria-label="View live demo"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
-                    <h3>Pharma Clinic Management</h3>
+
+                    <h3>Clinic Management System</h3>
+
                     <div class="project-description">
-                        <p>
-                            Built a clinic system to manage patients, doctors, appointments,
-                            schedules, and consultations with a structured backend.
-                        </p>
+                        <p>Clinic platform for patients, doctors, appointments, and consultations with a structured backend.</p>
+
                         <ul>
                             <li>REST APIs with Django REST Framework</li>
-                            <li>Appointment & Scheduling engine</li>
+                            <li>Appointment &amp; scheduling engine</li>
                             <li>Role-based access (Patient/Doctor/Receptionist)</li>
                         </ul>
                     </div>
+
                     <ul class="tech-list">
                         <li>Django</li>
                         <li>DRF</li>
@@ -193,64 +210,80 @@
                     </ul>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-card glass reveal" style="transition-delay: 200ms;">
+                <!-- Project: Bookstore Platform -->
+                <div class="project-card glass reveal" style="transition-delay:200ms;">
                     <div class="project-header">
                         <i class="far fa-folder-open folder-icon"></i>
+
                         <div class="project-links">
-                            <a href="#" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View code on GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
+
                     <h3>Bookstore Platform</h3>
+
                     <div class="project-description">
-                        <p>
-                            Developed a bookstore platform to manage books, authors, categories,
-                            orders, and inventory tracking.
-                        </p>
+                        <p>Bookstore platform managing books, authors, categories, orders, and inventory.</p>
+
                         <ul>
-                            <li>Complex CRUD and Many-to-Many relations</li>
-                            <li>Order & inventory management logic</li>
+                            <li>Complex CRUD &amp; Many-to-Many relations</li>
+                            <li>Order &amp; inventory management logic</li>
                             <li>Server-rendered secure dashboard</li>
                         </ul>
                     </div>
+
                     <ul class="tech-list">
                         <li>Django</li>
                         <li>MySQL</li>
                         <li>REST API</li>
                     </ul>
                 </div>
-
             </div>
         </section>
 
+        <!-- Contact section -->
         <section id="contact" class="section contact reveal">
             <h2 class="section-title"><span>04.</span> What's Next?</h2>
             <h2 class="contact-heading">Get In Touch</h2>
+
             <p class="contact-text">
-                I'm currently looking for new opportunities. Whether you have a question, a project idea, or just want to say hi, my inbox is always open. Let's build something awesome together!
+                I'm currently open to new opportunities. Whether you have a question, a project idea, or just want to say hi &mdash; my inbox is always open. Let's build something together.
             </p>
+
             <div class="contact-points">
                 <span><i class="fas fa-bolt"></i> Fast learner</span>
                 <span><i class="fas fa-shield-alt"></i> Secure APIs</span>
                 <span><i class="fas fa-layer-group"></i> Full-stack delivery</span>
             </div>
-            <button onclick="copyEmail()" class="btn secondary">Copy Email</button>
-            <a href="mailto:kareemhanysultan2004@gmail.com?subject=Hello Kareem&body=Hi Kareem, I saw your portfolio..."
-            class="btn primary contact-btn">
-                Say Hello <i class="fas fa-envelope"></i>
-            </a>            
-            <div class="social-links mt-4">
-                <a href="https://github.com/K-Sultan" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/kareem-sultan-1b7ba3372/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <div class="contact-buttons">
+                <button onclick="copyEmail()" class="btn secondary" id="copyEmailBtn">
+                    <i class="fas fa-copy"></i> Copy Email
+                </button>
+
+                <a href="mailto:kareemhanysultan2004@gmail.com?subject=Hello Kareem&body=Hi Kareem, I saw your portfolio..."
+                    class="btn primary contact-btn">
+                    Say Hello <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/K-Sultan" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kareem-sultan-1b7ba3372/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>Built with <i class="fas fa-heart" style="color:#ffd166;"></i> by Kareem Sultan &copy; 2026</p>
+        <p>Built with <i class="fas fa-heart" style="color:#ffd166;" aria-hidden="true"></i> by Kareem Sultan &copy; 2026</p>
     </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
+
 </html>
